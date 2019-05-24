@@ -1,5 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { AutorizacionGuard } from '../autorizacion.guard';
+import { DataService } from '../servicios/data.service';
+
 
 @Component({
   selector: 'app-login',
@@ -14,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   @Output() onLogin: EventEmitter<any> = new EventEmitter<any>()
 
-  constructor(private ruta: Router) { }
+  constructor(private ruta: Router, private dataservice: DataService) { }
 
   ngOnInit() {
   }
@@ -28,6 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   ingresar() {
+    this.dataservice.activaMenu=true;
     this.ruta.navigate(["/listado"])
     /* alert(this.usuario + " " + this.contrasena) */
     //this.onLogin.emit()

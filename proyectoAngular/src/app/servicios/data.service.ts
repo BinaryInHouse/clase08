@@ -6,6 +6,7 @@ import { IReceta } from '../modelos/receta';
 })
 export class DataService {
 
+  activaMenu:boolean =false;
   onCambioData: EventEmitter<Array<{}>> = new EventEmitter<Array<{}>>()
 
   private data: Array<IReceta> = [
